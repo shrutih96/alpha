@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p>Employee Inventory Management System</p>
+
+<form onsubmit="return validate()" action="LoginServe"> 
+
+UserID:
+
+<input id="na" type="text" name="id" placeholder="Name"/>
+<span id="sp1"></span><br />
+
+Password:
+<input id="pa" type="password" name="password" placeholder="Password" />
+<span id="sp2"></span><br />
+
+<input type="submit" value="Login" />
+
+</form>
+
+<script>
+	function validate(){
+		var flagName=validateName(document.getElementById("na").value);
+		var flagPassword=validatePassword(document.getElementById("pa").value);
+		console.log(flagName && flagPassword);
+		if(flagName && flagPassword){
+			return true;
+		}	
+		else{
+			return false;
+		}
+	}
+	
+	function validateName(name){
+		if(name.trim()!="")
+			return true;
+		else{
+			document.getElementById("sp1").innerHTML="Enter your username."
+			document.getElementById("sp1").style.color='red';
+			return false;
+		}
+	}
+	
+	function validatePassword(password){
+		if(password.trim()!="")
+			return true;
+		else{
+			document.getElementById("sp2").innerHTML="Enter password."
+			document.getElementById("sp2").style.color='red';
+			return false;
+		}
+	}
+</script>
+
+</body>
+</html>
